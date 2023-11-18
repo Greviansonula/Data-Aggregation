@@ -38,12 +38,12 @@ jobs:
         run: |
           python weather_aggregator.py
 
-      - name: Commit files
-        run: |
-          git config --local user.email ${{ secrets.EMAIL }}
-          git config --local user.name ${{ secrets.USERNAME }}
-          git add -A
-          git commit -m "Update aggregated weather data" -a
+      # - name: Commit files
+      #   run: |
+      #     git config --local user.email ${{ secrets.EMAIL }}
+      #     git config --local user.name ${{ secrets.USERNAME }}
+      #     git add -A
+      #     git commit -m "1.1.1.1" -a
 
       # - name: Push changes
       #   uses: ad-m/github-push-action@v0.6.0
@@ -55,6 +55,15 @@ jobs:
       #     git add -A
       #     git commit -m "Update aggregated weather data" -a
 
-      - name: Push changes
-        run: |
-          git push origin master
+      - name: Commit files
+      run: |
+        git config user.email ${{ secrets.EMAIL }} 
+        git config user.name ${{ secrets.USERNAME }} 
+        git remote add private_repo https://${{ secrets.SEC_GITHUB_TOKEN }}@github.com/Greviansonula/Data-Aggregation.git
+        git add .
+        git commit -a -m "1.1.1.1 $(date)"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.SEC_GITHUB_TOKEN }} 
+        branch: ${{ github.ref }}
