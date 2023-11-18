@@ -57,4 +57,4 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin main
+          git push origin master
