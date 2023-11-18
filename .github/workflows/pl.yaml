@@ -1,9 +1,8 @@
 name: Weather Data Aggregation
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+  - cron: "10 * * * *"
 
 jobs:
   build:
