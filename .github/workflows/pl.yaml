@@ -12,6 +12,7 @@ jobs:
     env:
       OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
       WEATHERSTACK_API_KEY: ${{ secrets.WEATHERSTACK_API_KEY }}
+      SEC_GITHUB_TOKEN: ${{ secrets.SEC_GITHUB_TOKEN }}
 
     steps:
       - name: Checkout repo content
