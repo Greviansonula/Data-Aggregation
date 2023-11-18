@@ -38,23 +38,6 @@ jobs:
         run: |
           python weather_aggregator.py
 
-      # - name: Commit files
-      #   run: |
-      #     git config --local user.email ${{ secrets.EMAIL }}
-      #     git config --local user.name ${{ secrets.USERNAME }}
-      #     git add -A
-      #     git commit -m "1.1.1.1" -a
-
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@v0.6.0
-      #   with:
-      #     github_token: ${{ secrets.SEC_GITHUB_TOKEN }}
-      #     branch: master
-      #  - name: Commit files
-      #   run: |
-      #     git add -A
-      #     git commit -m "Update aggregated weather data" -a
-
       - name: Commit files
         run: |
           git config user.email ${{ secrets.EMAIL }} 
