@@ -45,8 +45,16 @@ jobs:
           git add -A
           git commit -m "Update aggregated weather data" -a
 
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@v0.6.0
+      #   with:
+      #     github_token: ${{ secrets.SEC_GITHUB_TOKEN }}
+      #     branch: master
+      #  - name: Commit files
+      #   run: |
+      #     git add -A
+      #     git commit -m "Update aggregated weather data" -a
+
       - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.SEC_GITHUB_TOKEN }}
-          branch: master
+        run: |
+          git push origin main
