@@ -56,14 +56,14 @@ jobs:
       #     git commit -m "Update aggregated weather data" -a
 
       - name: Commit files
-      run: |
-        git config user.email ${{ secrets.EMAIL }} 
-        git config user.name ${{ secrets.USERNAME }} 
-        git remote add private_repo https://${{ secrets.SEC_GITHUB_TOKEN }}@github.com/Greviansonula/Data-Aggregation.git
-        git add .
-        git commit -a -m "1.1.1.1 $(date)"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.SEC_GITHUB_TOKEN }} 
-        branch: ${{ github.ref }}
+        run: |
+          git config user.email ${{ secrets.EMAIL }} 
+          git config user.name ${{ secrets.USERNAME }} 
+          git remote add private_repo https://${{ secrets.SEC_GITHUB_TOKEN }}@github.com/Greviansonula/Data-Aggregation.git
+          git add .
+          git commit -a -m "1.1.1.1 $(date)"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.SEC_GITHUB_TOKEN }} 
+          branch: ${{ github.ref }}
